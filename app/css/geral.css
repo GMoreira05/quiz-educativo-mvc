@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap");
+
+* {
+  font-family: "Nunito", "Segoe UI", sans-serif;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
