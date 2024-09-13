@@ -5,8 +5,17 @@ namespace App\Controller;
 
 class AdminController extends Controller
 {
-    public static function loginForm()
+    public static function home()
     {
-        parent::render('Admin/FormLogin');
+        if (isset($_SESSION['admin'])) {
+            parent::render('Admin/FormLogin');
+        } else {
+            parent::render('Admin/Home');
+        }
+    }
+
+    public static function form()
+    {
+        parent::render('Admin/FormQuestao');
     }
 }

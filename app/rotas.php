@@ -14,8 +14,12 @@ switch ($url) {
         PartidaController::criar();
         break;
 
-    case '/adm/login':
-        AdminController::loginForm();
+    case '/adm':
+        AdminController::home();
+        break;
+
+    case '/adm/formquestao':
+        AdminController::form();
         break;
 
     default:
