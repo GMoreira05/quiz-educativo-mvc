@@ -2,6 +2,7 @@
 
 use App\Controller\PartidaController;
 use App\Controller\AdminController;
+use App\Controller\QuestaoController;
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -18,8 +19,16 @@ switch ($url) {
         AdminController::home();
         break;
 
+    case '/adm/login':
+        AdminController::login();
+        break;
+
     case '/adm/formquestao':
-        AdminController::form();
+        QuestaoController::form();
+        break;
+
+    case '/questao/save':
+        QuestaoController::save();
         break;
 
     default:

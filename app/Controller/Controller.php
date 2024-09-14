@@ -15,9 +15,9 @@ abstract class Controller
     }
 
 
-    protected static function isAuthenticated()
+    protected static function isAdmin()
     {
-        if (!isset($_SESSION['usuario_logado']))
+        if (!isset($_SESSION['admin']))
             header("location: /login");
     }
 }

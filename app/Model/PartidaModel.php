@@ -9,10 +9,6 @@ class PartidaModel extends Model
 
     public function nova()
     {
-        if (empty($this->id)) {
-            $dao->insert($this);
-        } else {
-            $dao->update($this);
-        }
+        echo 'Criar rota...';
     }
 }

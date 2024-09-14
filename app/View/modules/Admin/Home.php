@@ -107,27 +107,15 @@
             <a class="botao-novo" href="/adm/formquestao">Nova +</a>
         </div>
         <div class="lista-questao">
-            <div class="item-lista-questao">
-                <p class="enunciado-questao">Qual a capital do Brasil?</p>
-                <div>
-                    <button class="botao-editar">Editar</button>
-                    <button class="botao-excluir">Excluir</button>
+            <?php foreach ($model->rows as $item): ?>
+                <div class="item-lista-questao">
+                    <p class="enunciado-questao"><?= $item->enunciado ?></p>
+                    <div>
+                        <a href="/adm/formquestao?id=<?= $item->id ?>" class="botao-editar">Editar</a>
+                        <a href="/adm/excluirquestao?id=<?= $item->id ?>" class="botao-excluir">Excluir</a>
+                    </div>
                 </div>
-            </div>
-            <div class="item-lista-questao">
-                <p class="enunciado-questao">Qual é a maior montanha do mundo?</p>
-                <div>
-                    <button class="botao-editar">Editar</button>
-                    <button class="botao-excluir">Excluir</button>
-                </div>
-            </div>
-            <div class="item-lista-questao">
-                <p class="enunciado-questao">Quem pintou a Mona Lisa?</p>
-                <div>
-                    <button class="botao-editar">Editar</button>
-                    <button class="botao-excluir">Excluir</button>
-                </div>
-            </div>
+            <?php endforeach ?>
         </div>
     </div>
 </body>

@@ -79,19 +79,26 @@
         .login-btn:hover {
             transform: scale(1.05);
         }
+
+        .erro-login {
+            margin: 0px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="header">Autentique-se</div>
-        <div class="input-group">
-            <input type="text" placeholder="Usuário">
-        </div>
-        <div class="input-group">
-            <input type="password" placeholder="Senha">
-        </div>
-        <button class="login-btn">Entrar</button>
+        <form action="/adm/login" method="post">
+            <div class="header">Autentique-se</div>
+            <div class="input-group">
+                <input type="text" placeholder="Usuário" name="usuario">
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Senha" name="senha">
+            </div>
+            <?= isset($_GET['erro']) ? '<span class="erro-login">Credenciais Inválidas</span>' : '' ?></span>
+            <button class="login-btn" type="submit">Entrar</button>
+        </form>
     </div>
 </body>
 

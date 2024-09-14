@@ -98,26 +98,35 @@
         <div class="edit-header">
             <h2><?= isset($_GET['id']) ? 'Editar' : 'Nova' ?> Questão</h2>
         </div>
-        <form>
+        <form method="post" action="/questao/save">
+            <input type="hidden" name="id" value="<?= $model->id ?>">
             <div class="form-group">
                 <label for="question">Enunciado</label>
-                <textarea id="question" name="question">Qual a capital do Brasil?</textarea>
+                <textarea id="question" name="question"><?= $model->enunciado ?></textarea>
             </div>
             <div class="form-group">
                 <label for="option-a">Alternativa A</label>
-                <input type="text" id="option-a" name="option-a" value="Rio de Janeiro">
+                <input type="text" id="option-a" name="option-a" value="<?= $model->alternativa_a ?>">
             </div>
             <div class="form-group">
                 <label for="option-b">Alternativa B</label>
-                <input type="text" id="option-b" name="option-b" value="São Paulo">
+                <input type="text" id="option-b" name="option-b" value="<?= $model->alternativa_b ?>">
             </div>
             <div class="form-group">
                 <label for="option-c">Alternativa C</label>
-                <input type="text" id="option-c" name="option-c" value="Brasília">
+                <input type="text" id="option-c" name="option-c" value="<?= $model->alternativa_c ?>">
             </div>
             <div class="form-group">
                 <label for="option-d">Alternativa D</label>
-                <input type="text" id="option-d" name="option-d" value="Indonésia">
+                <input type="text" id="option-d" name="option-d" value="<?= $model->alternativa_d ?>">
+            </div>
+            <div class="form-group">
+                <select id="alternativa-correta" name="alternativa-correta">
+                    <option value="A">Alternativa A</option>
+                    <option value="B">Alternativa B</option>
+                    <option value="C">Alternativa C</option>
+                    <option value="D">Alternativa D</option>
+                </select>
             </div>
             <div class="form-actions">
                 <a href="/adm" class="cancel-button">Cancelar</a>
