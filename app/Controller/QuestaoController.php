@@ -25,10 +25,14 @@ class QuestaoController extends Controller
 
         $model->id = $_POST['id'];
         $model->enunciado = $_POST['enunciado'];
-        $model->alternativa_a = $_POST['alternativa_a'];
-        $model->alternativa_b = $_POST['alternativa_b'];
-        $model->alternativa_c = $_POST['alternativa_c'];
-        $model->alternativa_d = $_POST['alternativa_d'];
-        $model->alternativa_correta = $_POST['alternativa_correta'];
+        $model->alternativa_a = $_POST['alternativa-a'];
+        $model->alternativa_b = $_POST['alternativa-b'];
+        $model->alternativa_c = $_POST['alternativa-c'];
+        $model->alternativa_d = $_POST['alternativa-d'];
+        $model->alternativa_correta = $_POST['alternativa-correta'];
+
+        $model->save();
+
+        header('location: /adm');
     }
 }

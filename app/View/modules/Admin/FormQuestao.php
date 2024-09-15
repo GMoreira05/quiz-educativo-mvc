@@ -44,7 +44,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 10px;
             border-radius: 5px;
@@ -101,31 +102,32 @@
         <form method="post" action="/questao/save">
             <input type="hidden" name="id" value="<?= $model->id ?>">
             <div class="form-group">
-                <label for="question">Enunciado</label>
-                <textarea id="question" name="question"><?= $model->enunciado ?></textarea>
+                <label for="enunciado">Enunciado</label>
+                <textarea id="enunciado" name="enunciado"><?= $model->enunciado ?></textarea>
             </div>
             <div class="form-group">
-                <label for="option-a">Alternativa A</label>
-                <input type="text" id="option-a" name="option-a" value="<?= $model->alternativa_a ?>">
+                <label for="alternativa-a">Alternativa A</label>
+                <input type="text" id="alternativa-a" name="alternativa-a" value="<?= $model->alternativa_a ?>">
             </div>
             <div class="form-group">
-                <label for="option-b">Alternativa B</label>
-                <input type="text" id="option-b" name="option-b" value="<?= $model->alternativa_b ?>">
+                <label for="alternativa-b">Alternativa B</label>
+                <input type="text" id="alternativa-b" name="alternativa-b" value="<?= $model->alternativa_b ?>">
             </div>
             <div class="form-group">
-                <label for="option-c">Alternativa C</label>
-                <input type="text" id="option-c" name="option-c" value="<?= $model->alternativa_c ?>">
+                <label for="alternativa-c">Alternativa C</label>
+                <input type="text" id="alternativa-c" name="alternativa-c" value="<?= $model->alternativa_c ?>">
             </div>
             <div class="form-group">
-                <label for="option-d">Alternativa D</label>
-                <input type="text" id="option-d" name="option-d" value="<?= $model->alternativa_d ?>">
+                <label for="alternativa-d">Alternativa D</label>
+                <input type="text" id="alternativa-d" name="alternativa-d" value="<?= $model->alternativa_d ?>">
             </div>
             <div class="form-group">
+                <label for="alternativa-correta">Alternativa Correta</label>
                 <select id="alternativa-correta" name="alternativa-correta">
-                    <option value="A">Alternativa A</option>
-                    <option value="B">Alternativa B</option>
-                    <option value="C">Alternativa C</option>
-                    <option value="D">Alternativa D</option>
+                    <option value="a" <?= $model->alternativa_correta == 'a' ? 'selected' : '' ?>>Alternativa A</option>
+                    <option value="b" <?= $model->alternativa_correta == 'b' ? 'selected' : '' ?>>Alternativa B</option>
+                    <option value="c" <?= $model->alternativa_correta == 'c' ? 'selected' : '' ?>>Alternativa C</option>
+                    <option value="d" <?= $model->alternativa_correta == 'd' ? 'selected' : '' ?>>Alternativa D</option>
                 </select>
             </div>
             <div class="form-actions">

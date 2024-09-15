@@ -32,4 +32,36 @@ class QuestaoDAO extends DAO
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
+
+
+    public function insert(QuestaoModel $model)
+    {
+        $sql = "INSERT INTO questoes (enunciado, alternativa_a, alternativa_b, alternativa_c, alternativa_d, alternativa_correta) VALUES (?, ?, ?, ?, ?, ?);";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $model->enunciado);
+        $stmt->bindValue(2, $model->alternativa_a);
+        $stmt->bindValue(3, $model->alternativa_b);
+        $stmt->bindValue(4, $model->alternativa_c);
+        $stmt->bindValue(5, $model->alternativa_d);
+        $stmt->bindValue(6, $model->alternativa_correta);
+
+        $stmt->execute();
+    }
+
+    public function update(QuestaoModel $model)
+    {
+        $sql = "UPDATE questoes SET enunciado = ?, alternativa_a = ?, alternativa_b = ?, alternativa_c = ?, alternativa_d = ?, alternativa_correta = ? WHERE id = ?";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $model->enunciado);
+        $stmt->bindValue(2, $model->alternativa_a);
+        $stmt->bindValue(3, $model->alternativa_b);
+        $stmt->bindValue(4, $model->alternativa_c);
+        $stmt->bindValue(5, $model->alternativa_d);
+        $stmt->bindValue(6, $model->alternativa_correta);
+        $stmt->bindValue(7, $model->id);
+
+        $stmt->execute();
+    }
 }

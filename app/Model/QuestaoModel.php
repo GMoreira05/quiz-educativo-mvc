@@ -23,4 +23,11 @@ class QuestaoModel extends Model
 
         $this->rows = $dao->select();
     }
+
+    public function save()
+    {
+        $dao = new QuestaoDAO();
+
+        $this->id != null ? $dao->update($this) : $dao->insert($this);
+    }
 }
