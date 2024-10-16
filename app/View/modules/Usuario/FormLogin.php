@@ -88,10 +88,10 @@
 
 <body>
     <div class="container">
-        <form action="/adm/login" method="post">
+        <form action="/usuario/login" method="post">
             <div class="header">Autentique-se</div>
             <div class="input-group">
-                <input type="text" placeholder="Usuário" name="usuario">
+                <input type="email" placeholder="E-Mail" name="email">
             </div>
             <div class="input-group">
                 <input type="password" placeholder="Senha" name="senha">
