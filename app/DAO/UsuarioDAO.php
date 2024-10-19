@@ -24,6 +24,17 @@ class UsuarioDAO extends DAO
         return $stmt->fetchObject("App\Model\UsuarioModel"); // Retornando um objeto específico PessoaModel
     }
 
+    public function insert($email, $senha, $nome)
+    {
+        $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, md5(?))";
 
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $nome);
+        $stmt->bindValue(2, $email);
+        $stmt->bindValue(3, $senha);
+        $stmt->execute();
+
+        return $this->conexao->lastInsertId('usuarios');
+    }
 
 }

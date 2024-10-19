@@ -15,9 +15,33 @@ class PartidaController extends Controller
         }
     }
 
-    public static function criar()
+    public static function nova()
     {
-        $_SESSION['id_partida'] = 1;
+        if (!isset($_SESSION['usuario']))
+            header('location: /usuario/login');
+
+        $model = new PartidaModel();
+
+        $model->id_usuario = $_SESSION['usuario'];
+        $model->nova();
+
+        $_SESSION['id_partida'] = $model->id;
         header('location: /');
+    }
+
+    public static function finalizar()
+    {
+        if (isset($_SESSION['usuario'], $_SESSION['id_partida'])) {
+            $model = new PartidaModel();
+            $model->id = $_SESSION['id_partida'];
+
+            $model = $model->selectById();
+            $model->finalizada = 1;
+            $model->update();
+
+            unset($_SESSION['id_partida']);
+
+            header('location: /');
+        }
     }
 }

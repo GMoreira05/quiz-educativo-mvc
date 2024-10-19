@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Autenticação</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="/css/geral.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
@@ -62,7 +62,7 @@
             border-radius: 0 0 10px 10px;
         }
 
-        .login-btn {
+        .register-btn {
             background-color: #ff4d4d;
             border: none;
             border-radius: 10px;
@@ -76,42 +76,45 @@
             border-bottom: 5px solid rgba(0, 0, 0, 0.2);
         }
 
-        .login-btn:hover {
+        .register-btn:hover {
             transform: scale(1.05);
         }
 
-        .erro-login {
-            margin: 0px;
-        }
-
-        .botao-cadastrar {
+        .botao-login {
             color: white;
         }
 
-        .botao-cadastrar:hover {
+        .botao-login:hover {
             text-decoration: underline;
         }
 
-        div.cadastrar {
+        div.login {
             padding-top: 1.5rem;
+        }
+
+        .erro-cadastro {
+            margin: 0;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <form action="/usuario/login" method="post">
-            <div class="header">Autentique-se</div>
+        <form action="/usuario/cadastro" method="post">
+            <div class="header">Registre-se</div>
+            <div class="input-group">
+                <input type="name" placeholder="Nome" name="nome">
+            </div>
             <div class="input-group">
                 <input type="email" placeholder="E-Mail" name="email">
             </div>
             <div class="input-group">
                 <input type="password" placeholder="Senha" name="senha">
             </div>
-            <?= isset($_GET['erro']) ? '<span class="erro-login">Credenciais Inválidas</span>' : '' ?></span>
-            <button class="login-btn" type="submit">Entrar</button>
-            <div class="cadastrar">
-                <a href="/usuario/cadastro" class="botao-cadastrar">Não tem uma conta? Cadastre-se!</a>
+            <?= isset($_GET['erro']) ? '<span class="erro-cadastro">Erro: ' . $_GET['erro'] . '</span>' : '' ?></span>
+            <button class="register-btn" type="submit">Cadastrar</button>
+            <div class="login">
+                <a href="/usuario/login" class="botao-login">Já tem uma conta? Entre!</a>
             </div>
         </form>
     </div>

@@ -77,7 +77,7 @@
         <div class="enunciado">
             Responda as questões sem errar e acumule pontos para testar seus conhecimentos gerais!
         </div>
-        <a class="botao" href="/partida/criar">
+        <a class="botao" href="/partida/nova">
             Vamos Começar?
         </a>
     </div>

@@ -4,6 +4,15 @@
     <title>Questão #1</title>
     <link rel="stylesheet" href="/css/geral.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        const handleFinalizar = () => {
+            let resultado = confirm('Finalizar Partida?')
+
+            if (resultado) {
+                window.location.href = '/partida/finalizar'
+            }
+        }
+    </script>
     <style>
         body {
             margin: 0;
@@ -23,6 +32,7 @@
             text-align: center;
             width: 900px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
         }
 
         .questao {
@@ -94,11 +104,19 @@
             align-items: center;
             margin-right: 10px;
         }
+
+        .botao-finalizar {
+            position: absolute;
+            right: 1rem;
+            top: 0.5rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <span onclick="handleFinalizar()" class="botao-finalizar">X</span>
         <div class="questao">Questão #1</div>
         <div class="enunciado">
             Qual a capital do Brasil?

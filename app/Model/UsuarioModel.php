@@ -19,4 +19,11 @@ class UsuarioModel extends Model
         else
             null;
     }
+
+    public function save()
+    {
+        $dao = new UsuarioDAO();
+
+        $this->id = $dao->insert($this->email, $this->senha, $this->nome);
+    }
 }

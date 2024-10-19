@@ -11,16 +11,16 @@ switch ($url) {
         PartidaController::index();
         break;
 
-    case '/partida/criar':
-        PartidaController::criar();
-        break;
-
-    case '/usuario':
-        UsuarioController::homeUsuario();
-        break;
-
     case '/usuario/login':
         UsuarioController::login();
+        break;
+
+    case '/usuario/logout':
+        UsuarioController::logout();
+        break;
+
+    case '/usuario/cadastro':
+        UsuarioController::cadastrar();
         break;
 
     case '/adm/formquestao':
@@ -29,6 +29,14 @@ switch ($url) {
 
     case '/questao/save':
         QuestaoController::save();
+        break;
+
+    case '/partida/nova':
+        PartidaController::nova();
+        break;
+
+    case '/partida/finalizar':
+        PartidaController::finalizar();
         break;
 
     default:

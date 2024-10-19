@@ -15,7 +15,8 @@ CREATE TABLE IF NOT EXISTS partidas (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL,
     pontuacao INT NOT NULL DEFAULT(0),
-    finalizada BOOL NOT NULL DEFAULT(false)
+    finalizada BOOL NOT NULL DEFAULT(false),
+    data_criacao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS partidas_questoes (
