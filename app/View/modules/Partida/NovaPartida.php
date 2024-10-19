@@ -72,6 +72,7 @@
 </head>
 
 <body>
+    <?php include 'View/components/Navbar.php'; ?>
     <div class="container">
         <div class="questao">Quiz Educativo</div>
         <div class="enunciado">

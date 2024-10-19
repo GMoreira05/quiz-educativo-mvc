@@ -12,3 +12,26 @@ button {
 a {
   text-decoration: none;
 }
+
+div.navbar{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: #1e1e26;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-group{
+  display: flex;
+}
+
+a.nav-link{
+  color: white;
+  padding: 0.5rem;
+}
+
+a.nav-link:hover {
+  text-decoration: underline;
+}
