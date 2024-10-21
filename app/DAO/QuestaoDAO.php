@@ -64,4 +64,15 @@ class QuestaoDAO extends DAO
 
         $stmt->execute();
     }
+
+    public function excluir(QuestaoModel $model)
+    {
+        $sql = "DELETE FROM questoes WHERE id = ?";
+
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $model->id);
+
+        $stmt->execute();
+    }
 }

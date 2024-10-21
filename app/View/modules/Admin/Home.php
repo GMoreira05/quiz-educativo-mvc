@@ -101,18 +101,19 @@
 </head>
 
 <body>
+    <?php include 'View/components/Navbar.php'; ?>
     <div class="dashboard-container">
         <div class="dashboard-header">
             <h2>Gerenciar Questões</h2>
-            <a class="botao-novo" href="/adm/formquestao">Nova +</a>
+            <a class="botao-novo" href="/admin/formquestao">Nova +</a>
         </div>
         <div class="lista-questao">
             <?php foreach ($model->rows as $item): ?>
                 <div class="item-lista-questao">
                     <p class="enunciado-questao"><?= $item->enunciado ?></p>
                     <div>
-                        <a href="/adm/formquestao?id=<?= $item->id ?>" class="botao-editar">Editar</a>
-                        <a href="/adm/excluirquestao?id=<?= $item->id ?>" class="botao-excluir">Excluir</a>
+                        <a href="/admin/formquestao?id=<?= $item->id ?>" class="botao-editar">Editar</a>
+                        <a href="/admin/excluirquestao?id=<?= $item->id ?>" class="botao-excluir">Excluir</a>
                     </div>
                 </div>
             <?php endforeach ?>

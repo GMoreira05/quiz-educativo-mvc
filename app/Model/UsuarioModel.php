@@ -26,4 +26,16 @@ class UsuarioModel extends Model
 
         $this->id = $dao->insert($this->email, $this->senha, $this->nome);
     }
+
+    public function getByEmail()
+    {
+        $dao = new UsuarioDAO();
+
+        $dados_usuario = $dao->selectByEmail($this->email);
+
+        if (is_object($dados_usuario))
+            return $dados_usuario;
+        else
+            null;
+    }
 }

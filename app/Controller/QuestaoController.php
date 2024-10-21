@@ -33,6 +33,16 @@ class QuestaoController extends Controller
 
         $model->save();
 
-        header('location: /adm');
+        header('location: /admin');
+    }
+
+    public static function excluir()
+    {
+        parent::isAdmin();
+        $model = new QuestaoModel();
+        $model->id = (int) $_GET['id'];
+        $model->excluir();
+
+        header('location: /admin');
     }
 }

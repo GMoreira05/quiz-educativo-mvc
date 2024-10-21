@@ -57,6 +57,9 @@ class UsuarioController extends Controller
             $model->senha = $_POST['senha'];
             $model->nome = $_POST['nome'];
 
+            if ($model->getByEmail() != null)
+                header('location: /usuario/cadastro?erro=Já existe um usuário com esse email.');
+
             $model->save();
 
             $_SESSION['usuario'] = $model->id;

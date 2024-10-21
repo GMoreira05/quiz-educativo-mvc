@@ -24,6 +24,17 @@ class UsuarioDAO extends DAO
         return $stmt->fetchObject("App\Model\UsuarioModel"); // Retornando um objeto específico PessoaModel
     }
 
+    public function selectByEmail($email)
+    {
+        $sql = "SELECT * FROM usuarios WHERE email = ?";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $email);
+        $stmt->execute();
+
+        return $stmt->fetchObject("App\Model\UsuarioModel");
+    }
+
     public function insert($email, $senha, $nome)
     {
         $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, md5(?))";

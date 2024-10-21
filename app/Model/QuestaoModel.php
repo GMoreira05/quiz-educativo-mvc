@@ -30,4 +30,11 @@ class QuestaoModel extends Model
 
         $this->id != null ? $dao->update($this) : $dao->insert($this);
     }
+
+    public function excluir()
+    {
+        $dao = new QuestaoDAO();
+
+        $dao->excluir($this);
+    }
 }
