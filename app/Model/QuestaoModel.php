@@ -8,11 +8,11 @@ class QuestaoModel extends Model
     public $id, $enunciado, $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_correta;
     public $rows;
 
-    public function getById(int $id)
+    public function getById()
     {
         $dao = new QuestaoDAO();
 
-        $obj = $dao->selectById($id);
+        $obj = $dao->selectById($this->id);
 
         return ($obj) ? $obj : new QuestaoModel();
     }

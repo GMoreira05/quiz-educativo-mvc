@@ -12,7 +12,8 @@ class QuestaoController extends Controller
         parent::isAdmin();
         $model = new QuestaoModel();
         if (isset($_GET['id'])) {
-            $model = $model->getById((int) $_GET['id']);
+            $model->id = (int) $_GET['id'];
+            $model = $model->getById();
         }
 
         parent::render('Admin/FormQuestao', $model);

@@ -43,8 +43,16 @@ switch ($url) {
         PartidaController::nova();
         break;
 
+    case '/partida/responder':
+        PartidaController::responder();
+        break;
+
     case '/partida/finalizar':
         PartidaController::finalizar();
+        break;
+
+    case '/partida/zerou':
+        PartidaController::zerou();
         break;
 
     default:

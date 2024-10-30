@@ -122,22 +122,22 @@
             Qual a capital do Brasil?
         </div>
         <div class="alternativas">
-            <button class="alternativa">
+            <a class="alternativa" href="/partida/responder?resposta=a">
                 <div class="alternativa-letra">a</div>
                 Rio de Janeiro
-            </button>
-            <button class="alternativa">
+            </a>
+            <a class="alternativa" href="/partida/responder?resposta=b">
                 <div class="alternativa-letra">b</div>
                 São Paulo
-            </button>
-            <button class="alternativa">
+            </a>
+            <a class="alternativa" href="/partida/responder?resposta=c">
                 <div class="alternativa-letra">c</div>
                 Brasília
-            </button>
-            <button class="alternativa">
+            </a>
+            <a class="alternativa" href="/partida/responder?resposta=d">
                 <div class="alternativa-letra">d</div>
                 Indonésia
-            </button>
+            </a>
         </div>
     </div>
 </body>
