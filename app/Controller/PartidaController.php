@@ -70,6 +70,7 @@ class PartidaController extends Controller
         $partida_questao_model->resposta_escolhida = $_GET['resposta'];
         if ($partida_questao_model->resposta_escolhida != $questao_model->alternativa_correta) {
             $partida_model->finalizada = 1;
+            $partida_model->update();
             header('location: /partida/errou');
         } else {
             $partida_model->pontuacao++;
@@ -131,5 +132,12 @@ class PartidaController extends Controller
         $model->selectRanking();
 
         parent::render('Partida/Ranking', $model);
+    }
+
+    public static function errou()
+    {
+        parent::render('Partida/Errou');
+        unset($_SESSION['id_partida']);
+        unset($_SESSION['questao_atual']);
     }
 }
