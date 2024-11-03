@@ -55,6 +55,10 @@ switch ($url) {
         PartidaController::zerou();
         break;
 
+    case '/ranking':
+        PartidaController::ranking();
+        break;
+
     default:
         echo "Erro 404";
         break;

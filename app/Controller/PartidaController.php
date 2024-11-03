@@ -11,7 +11,15 @@ class PartidaController extends Controller
     public static function index()
     {
         if (isset($_SESSION['id_partida'])) {
-            parent::render('Partida/MostrarQuestao');
+            $partida_questao_model = new PartidaQuestaoModel();
+            $partida_questao_model->id_partida = $_SESSION['id_partida'];
+            $partida_questao_model = $partida_questao_model->selectQuestaoAtual();
+
+            $questao_model = new QuestaoModel();
+            $questao_model->id = $partida_questao_model->id_questao;
+            $questao_model = $questao_model->getById();
+
+            parent::render('Partida/MostrarQuestao', $questao_model);
         } else {
             parent::render('Partida/NovaPartida');
         }
@@ -32,6 +40,7 @@ class PartidaController extends Controller
         $partida_questao_model->gerarNova();
 
         $_SESSION['id_partida'] = $model->id;
+        $_SESSION['questao_atual'] = 1;
         header('location: /');
     }
 
@@ -65,6 +74,7 @@ class PartidaController extends Controller
         } else {
             $partida_model->pontuacao++;
             $partida_questao_model->update();
+            $_SESSION['questao_atual'] = $_SESSION['questao_atual'] + 1;
 
             // Verificar se tem questoes disponíveis antes de gerar uma nova questão p/ essa partida
             $arr = $partida_questao_model->obterDisponiveis();
@@ -91,6 +101,7 @@ class PartidaController extends Controller
             $model->update();
 
             unset($_SESSION['id_partida']);
+            unset($_SESSION['questao_atual']);
 
             header('location: /');
         }
@@ -98,17 +109,27 @@ class PartidaController extends Controller
 
     public static function zerou()
     {
-
         if (isset($_SESSION['usuario'], $_SESSION['id_partida'])) {
             $model = new PartidaModel();
             $model->id = $_SESSION['id_partida'];
 
             $model = $model->selectById();
+            $model->finalizada = 1;
+            $model->update();
+
             unset($_SESSION['id_partida']);
+            unset($_SESSION['questao_atual']);
 
             parent::render('Partida/Zerou');
         } else
             header('location: /');
     }
 
+    public static function ranking()
+    {
+        $model = new PartidaModel();
+        $model->selectRanking();
+
+        parent::render('Partida/Ranking', $model);
+    }
 }

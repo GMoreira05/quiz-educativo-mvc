@@ -44,4 +44,12 @@ class PartidaDAO extends DAO
         $stmt->bindValue(4, $model->id);
         $stmt->execute();
     }
+
+    public function selectRanking()
+    {
+        $sql = "SELECT p.*, u.nome FROM partidas p JOIN usuarios u ON u.id = p.id_usuario ORDER BY pontuacao DESC LIMIT 10";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
 }

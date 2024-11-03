@@ -31,4 +31,11 @@ class PartidaModel extends Model
         $dao = new PartidaDAO();
         $dao->updateById($this);
     }
+
+    public function selectRanking()
+    {
+        $dao = new PartidaDAO();
+
+        $this->rows = $dao->selectRanking();
+    }
 }

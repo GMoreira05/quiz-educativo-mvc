@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Questão #1</title>
+    <title>Questão #<?= $_SESSION['questao_atual'] ?></title>
     <link rel="stylesheet" href="/css/geral.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>
@@ -117,26 +117,26 @@
 <body>
     <div class="container">
         <span onclick="handleFinalizar()" class="botao-finalizar">X</span>
-        <div class="questao">Questão #1</div>
+        <div class="questao">Questão #<?= $_SESSION['questao_atual'] ?></div>
         <div class="enunciado">
-            Qual a capital do Brasil?
+            <?= $model->enunciado ?>
         </div>
         <div class="alternativas">
             <a class="alternativa" href="/partida/responder?resposta=a">
                 <div class="alternativa-letra">a</div>
-                Rio de Janeiro
+                <?= $model->alternativa_a ?>
             </a>
             <a class="alternativa" href="/partida/responder?resposta=b">
                 <div class="alternativa-letra">b</div>
-                São Paulo
+                <?= $model->alternativa_b ?>
             </a>
             <a class="alternativa" href="/partida/responder?resposta=c">
                 <div class="alternativa-letra">c</div>
-                Brasília
+                <?= $model->alternativa_c ?>
             </a>
             <a class="alternativa" href="/partida/responder?resposta=d">
                 <div class="alternativa-letra">d</div>
-                Indonésia
+                <?= $model->alternativa_d ?>
             </a>
         </div>
     </div>
