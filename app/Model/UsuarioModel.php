@@ -38,4 +38,11 @@ class UsuarioModel extends Model
         else
             null;
     }
+
+    public function getAllRows()
+    {
+        $dao = new UsuarioDAO();
+
+        $this->rows = $dao->select();
+    }
 }

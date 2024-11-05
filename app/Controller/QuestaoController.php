@@ -34,7 +34,7 @@ class QuestaoController extends Controller
 
         $model->save();
 
-        header('location: /admin');
+        header('location: /admin/questoes');
     }
 
     public static function excluir()
@@ -44,6 +44,16 @@ class QuestaoController extends Controller
         $model->id = (int) $_GET['id'];
         $model->excluir();
 
-        header('location: /admin');
+        header('location: /admin/questoes');
+    }
+
+    public static function lista()
+    {
+        parent::isAdmin();
+
+        $model = new QuestaoModel();
+        $model->getAllRows();
+
+        parent::render('Admin/ListaQuestoes', $model);
     }
 }

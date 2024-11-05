@@ -48,4 +48,13 @@ class UsuarioDAO extends DAO
         return $this->conexao->lastInsertId('usuarios');
     }
 
+    public function select()
+    {
+        $sql = "SELECT id, nome, email, admin FROM usuarios ORDER BY id DESC";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
 }

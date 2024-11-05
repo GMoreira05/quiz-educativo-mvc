@@ -7,18 +7,6 @@ use App\Model\QuestaoModel;
 
 class UsuarioController extends Controller
 {
-
-    public static function homeAdmin()
-    {
-        if (!isset($_SESSION['admin']))
-            header('location: /');
-
-        $model = new QuestaoModel();
-        $model->getAllRows();
-
-        parent::render('Admin/Home', $model);
-    }
-
     public static function login()
     {
         if (isset($_POST['email'], $_POST['senha'])) {
@@ -73,5 +61,15 @@ class UsuarioController extends Controller
     {
         session_unset();
         header('location: /');
+    }
+
+    public static function lista()
+    {
+        parent::isAdmin();
+
+        $model = new UsuarioModel();
+        $model->getAllRows();
+
+        parent::render('Admin/ListaUsuarios', $model);
     }
 }

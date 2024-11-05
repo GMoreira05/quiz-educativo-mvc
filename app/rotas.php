@@ -23,8 +23,8 @@ switch ($url) {
         UsuarioController::cadastrar();
         break;
 
-    case '/admin':
-        UsuarioController::homeAdmin();
+    case '/admin/questoes':
+        QuestaoController::lista();
         break;
 
     case '/admin/formquestao':
@@ -33,6 +33,10 @@ switch ($url) {
 
     case '/admin/excluirquestao':
         QuestaoController::excluir();
+        break;
+
+    case '/admin/usuarios':
+        UsuarioController::lista();
         break;
 
     case '/questao/save':
