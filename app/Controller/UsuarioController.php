@@ -25,7 +25,8 @@ class UsuarioController extends Controller
                 else
                     $_SESSION['admin'] = false;
 
-                header("Location: /");
+                //header("Location: /");
+                var_dump($usuario);
 
             } else
                 header("Location: /usuario/login?erro=true");
