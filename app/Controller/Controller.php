@@ -17,7 +17,7 @@ abstract class Controller
 
     protected static function isAdmin()
     {
-        if (!isset($_SESSION['admin']) || $_SESSION['admin'] == false)
+        if (!isset($_SESSION['admin']))
             header("location: /");
     }
 }

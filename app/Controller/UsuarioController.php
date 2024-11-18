@@ -22,8 +22,6 @@ class UsuarioController extends Controller
 
                 if ($usuario->admin == 1)
                     $_SESSION['admin'] = true;
-                else
-                    $_SESSION['admin'] = false;
 
                 header("Location: /");
 
