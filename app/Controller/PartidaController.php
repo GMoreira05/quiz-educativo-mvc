@@ -71,6 +71,7 @@ class PartidaController extends Controller
         if ($partida_questao_model->resposta_escolhida != $questao_model->alternativa_correta) {
             $partida_model->finalizada = 1;
             $partida_model->update();
+            $partida_questao_model->update();
             header('location: /partida/errou');
         } else {
             $partida_model->pontuacao++;

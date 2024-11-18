@@ -76,7 +76,7 @@
         <div class="titulo">Que pena ☹️</div>
         <div class="texto">
             <span>Você errou essa última questão!</span>
-            <span>Sua pontuação: <?= $_SESSION['questao_atual'] ?>pts</span>
+            <span>Sua pontuação: <?= $_SESSION['questao_atual'] - 1 ?>pts</span>
             <span>Treine mais e tente atingir uma pontuação melhor!</span>
         </div>
         <a class="botao" href="/partida/nova">
